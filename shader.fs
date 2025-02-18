@@ -10,22 +10,15 @@ uniform vec2 screenResolution;
 
 void main()
 {  
-    float screenX = gl_FragCoord.x;
-    float screenY = gl_FragCoord.y;
-    // float screenX = fragPosition.x;
-    // float screenY = fragPosition.y;
+    /* this works but I don't get it 
+    vec2 uv = fragPosition.xy;
 
-    float realX = screenX - (screenResolution.x / 2);
-    float realY = screenY - (screenResolution.y / 2);
+    finalColor = vec4(0.);
 
-    float radius = 50;
+    uv.x -= .5;
 
-    if (realX * realX + realY * realY < radius * radius)
-    {
-        finalColor = vec4(1,1,1,1);
-    }
-    else 
-    {
-        finalColor = vec4(1,1,1,0);
-    }
+    vec2 z = vec2(0.);
+    for (; dot(z, z) + finalColor.x < 7.; finalColor += 0.005)
+        z = mat2(z, -z.y, z) * z + uv;
+    /*
 }

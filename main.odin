@@ -3,8 +3,8 @@ package main
 import "core:fmt"
 import rl "vendor:raylib"
 
-W_WIDTH :: 800
-W_HEIGHT :: 800
+W_WIDTH :: 1000
+W_HEIGHT :: 1000
 
 main :: proc() {
 	rl.InitWindow(W_WIDTH, W_HEIGHT, "Mandel")
@@ -17,7 +17,7 @@ main :: proc() {
 
 	for !rl.WindowShouldClose() {
 		rl.BeginDrawing()
-		rl.ClearBackground(rl.GRAY)
+		rl.ClearBackground(rl.WHITE)
 		defer rl.EndDrawing()
 
 		rl.SetShaderValue(
@@ -28,7 +28,7 @@ main :: proc() {
 		)
 
 		rl.BeginShaderMode(shader)
-		rl.DrawRectangle(0, 0, W_WIDTH, W_HEIGHT, rl.PURPLE)
+		rl.DrawRectangle(0, 0, W_WIDTH, W_HEIGHT, rl.BLACK)
 		rl.EndShaderMode()
 	}
 }
